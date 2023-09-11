@@ -35,6 +35,14 @@ class TestStack(unittest.TestCase):
         self.assertEquals(test_assert.top.data, "Inf_1")
         self.assertEquals(test_assert.top.next_node, None)
 
+    def test_str(self):
+        """Magic method __str__ testing"""
+        test_assert = Stack()
+        self.assertEquals(str(test_assert.top), "None")
+        test_assert.push("Inf_1")
+        self.assertEquals(str(test_assert.top.data), "Inf_1")
+        test_assert.push("Inf_2")
+        self.assertEquals(str(test_assert.top.next_node.data), "Inf_1")
 
 
 
