@@ -29,6 +29,29 @@ class LinkedList:
             self.tail.next_node = new_node
             self.tail = new_node
 
+    def to_list(self):
+        """List of nodes generator initializing"""
+        data_list = []
+        temp_node = self.head
+        while temp_node:
+            data_list.append(temp_node.data)
+            temp_node = temp_node.next_node
+        return data_list
+
+    def get_data_by_id(self, id_index):
+        """Node finder by id initializing with exception invalid node type"""
+        new_list = LinkedList.to_list(self)
+        for item in new_list:
+            try:
+                isinstance(item["id"], int)
+            except TypeError:
+                # raise TypeError
+                print(f"Данные не являются словарем или в словаре нет id.")
+            else:
+
+                if item["id"] == id_index:
+                    return item
+
     def __str__(self) -> str:
         """Вывод данных односвязного списка в строковом представлении"""
         node = self.head
